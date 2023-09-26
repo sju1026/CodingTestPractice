@@ -1,21 +1,28 @@
 #include <iostream>
+
 using namespace std;
 
 int main(int argc, const char* argv[]) {
 
-    int timer = 0;
-    string s;
+    int a[100][100] = { 0 };
 
-    cin >> s;
+    int n, x, y, cnt = 0;
+    cin >> n;
 
-    for (int i = 0; i < s.size(); i++) {
-        timer += ((int)s[i] - 65) / 3 + 3;
-
-        if (s[i] == 'S' || s[i] == 'V' || s[i] == 'Y' || s[i] == 'Z')
-            timer--;
+    while (n--)
+    {
+        cin >> x >> y;
+        for (int i = y; i < y + 10; i++) {
+            for (int j = x; j < x + 10; j++) {
+                if (a[i][j])
+                    continue;
+                a[i][j] = 1;
+                cnt++;
+            }
+        }
     }
 
-    cout << timer;
+    cout << cnt;
 
 	return 0;
 }
@@ -265,164 +272,164 @@ for (int i = 0; i < n; i++)
 --------------------------------
 ios_base::sync_with_stdio(0);
 
-    int n;
-    cin >> n;
+int n;
+cin >> n;
 
-    int arr[1000001];
+int arr[1000001];
 
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
+for (int i = 0; i < n; i++)
+    cin >> arr[i];
 
-    int min = 0;
-    int max = 0;
+int min = 0;
+int max = 0;
 
-    for (int i = 0; i < n; i++)
-    {
-        if (arr[i] < arr[i + 1])
-            max = arr[i + 1];
+for (int i = 0; i < n; i++)
+{
+    if (arr[i] < arr[i + 1])
+        max = arr[i + 1];
 
-        else if (arr[i] > arr[i + 1])
-            min = arr[i];
-    }
-    cout << min << " " << max;
+    else if (arr[i] > arr[i + 1])
+        min = arr[i];
+}
+cout << min << " " << max;
 
-    return 0;
+return 0;
 --------------------------------
 ios_base::sync_with_stdio(0);
 
-    int n;
-    cin >> n;
+int n;
+cin >> n;
 
-    int min = 1000001;
-    int max = -1000001;
+int min = 1000001;
+int max = -1000001;
 
-    int input;
+int input;
 
-    for (int i = 0; i < n; i++) {
-        cin >> input;
+for (int i = 0; i < n; i++) {
+    cin >> input;
 
-        if (input < min)
-            min = input;
-        if (input > max)
-            max = input;
-    }
+    if (input < min)
+        min = input;
+    if (input > max)
+        max = input;
+}
 
-    cout << min << " " << max;
+cout << min << " " << max;
 
-    return 0;
+return 0;
 --------------------------------
 ios_base::sync_with_stdio(0);
 
-    int max = -1;
-    int index = 0;
-    int arr[9];
+int max = -1;
+int index = 0;
+int arr[9];
 
-    for (int i = 0; i < 9; i++)
-        cin >> arr[i];
+for (int i = 0; i < 9; i++)
+    cin >> arr[i];
 
-    for (int i = 0; i < 9; i++)
-    {
-        if (arr[i] > max) {
-            max = arr[i];
-            index = i;
-        }
+for (int i = 0; i < 9; i++)
+{
+    if (arr[i] > max) {
+        max = arr[i];
+        index = i;
     }
-    cout << max << "\n" << index + 1;
+}
+cout << max << "\n" << index + 1;
 
-    return 0;
+return 0;
 --------------------------------
 ios_base::sync_with_stdio(0);
 
-    int n, m;
-    int arr[101] = { 0, };
-    int a, b, c;
+int n, m;
+int arr[101] = { 0, };
+int a, b, c;
 
-    cin >> n >> m;
+cin >> n >> m;
 
-    for (int i = 0; i < m; i++) {
-        cin >> a >> b >> c;
-        for (int k = a; k <= b; k++)
-            arr[k] = c;
-    }
-    for (int i = 1; i <= n; i++)
-        cout << arr[i] << ' ';
+for (int i = 0; i < m; i++) {
+    cin >> a >> b >> c;
+    for (int k = a; k <= b; k++)
+        arr[k] = c;
+}
+for (int i = 1; i <= n; i++)
+    cout << arr[i] << ' ';
 
-    return 0;
+return 0;
 --------------------------------
 ios_base::sync_with_stdio(0);
 
-    int arr[100];
+int arr[100];
 
-    int a, b, c, d, temp;
-    cin >> a >> b;
+int a, b, c, d, temp;
+cin >> a >> b;
 
-    for (int i = 0; i < a; i++)
-        arr[i] = i + 1;
-    for (int i = 0; i < b; i++)
-    {
-        cin >> c >> d;
-        temp = arr[c - 1];
-        arr[c - 1] = arr[d - 1];
-        arr[d - 1] = temp;
-    }
-    for (int i = 0; i < a; i++)
-        cout << arr[i] << " ";
+for (int i = 0; i < a; i++)
+    arr[i] = i + 1;
+for (int i = 0; i < b; i++)
+{
+    cin >> c >> d;
+    temp = arr[c - 1];
+    arr[c - 1] = arr[d - 1];
+    arr[d - 1] = temp;
+}
+for (int i = 0; i < a; i++)
+    cout << arr[i] << " ";
 
-    return 0;
+return 0;
 --------------------------------
 ios_base::sync_with_stdio(0);
 
-    int arr[31] = { 0, };
-    int a;
+int arr[31] = { 0, };
+int a;
 
-    for (int i = 0; i < 28; i++)
-    {
-        cin >> a;
-        arr[a] = 1;
-    }
+for (int i = 0; i < 28; i++)
+{
+    cin >> a;
+    arr[a] = 1;
+}
 
-    for (int i = 1; i < 30 + 1; i++)
+for (int i = 1; i < 30 + 1; i++)
+{
+    if (!arr[i])
     {
-        if (!arr[i])
-        {
-            cout << i << "\n";
-        }
+        cout << i << "\n";
     }
+}
 --------------------------------
 int count[42] = {};
 
-    int v;
+int v;
 
-    for (int i = 0; i < 10; i++)
-    {
-        cin >> v;
-        count[v % 42]++;
-    }
+for (int i = 0; i < 10; i++)
+{
+    cin >> v;
+    count[v % 42]++;
+}
 
-    int result = 0;
+int result = 0;
 
-    for (int v : count) {
-        if (v > 0)
-            result++;
-    }
-    cout << result;
+for (int v : count) {
+    if (v > 0)
+        result++;
+}
+cout << result;
 --------------------------------
 int n;
 
-    cin >> n;
-    int arr[1000] = { };
-    int max = -1;
-    double result = 0;
+cin >> n;
+int arr[1000] = { };
+int max = -1;
+double result = 0;
 
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-        if (arr[i] > max)
-            max = arr[i];
-        result += arr[i];
-    }
-    result = (result / max * 100) / n;
-    cout << result << "\n";
+for (int i = 0; i < n; i++)
+{
+    cin >> arr[i];
+    if (arr[i] > max)
+        max = arr[i];
+    result += arr[i];
+}
+result = (result / max * 100) / n;
+cout << result << "\n";
 --------------------------------
 */
 #pragma endregion
@@ -430,129 +437,389 @@ int n;
 #pragma region String
 /*
 string s;
-    int i;
+int i;
 
-    cin >> s >> i;
+cin >> s >> i;
 
-    cout << s[i - 1];
+cout << s[i - 1];
 --------------------------------
 string s;
 
-    cin >> s;
+cin >> s;
 
-    cout << s.length();
+cout << s.length();
 --------------------------------
 string s;
-    int num;
+int num;
 
-    cin >> num;
+cin >> num;
 
-    for (int i = 0; i < num; i++)
-    {
-        cin >> s;
-        int index = s.length();
-        cout << s[0] << s[index - 1] << "\n";
-    }
+for (int i = 0; i < num; i++)
+{
+cin >> s;
+int index = s.length();
+cout << s[0] << s[index - 1] << "\n";
+}
 --------------------------------
 char s;
 
-    cin >> s;
-    cout << int(s);
+cin >> s;
+cout << int(s);
 --------------------------------
 int count;
-    char ch;
+char ch;
 
-    cin >> count;
+cin >> count;
 
-    int sum = 0;
+int sum = 0;
 
-    for (int i = 0; i < count; i++)
-    {
-        cin >> ch;
-        sum += ch - 48;
-    }
-    cout << sum;
+for (int i = 0; i < count; i++)
+{
+    cin >> ch;
+    sum += ch - 48;
+}
+cout << sum;
 --------------------------------
 int arr[26] = { 0, };
 
-    string s;
+string s;
 
-    cin >> s;
+cin >> s;
 
-    for (char i = 'a'; i < 'z'+1; i++)
-    {
-        cout << (int)s.find(i) << " ";
-    }
+for (char i = 'a'; i < 'z'+1; i++)
+{
+    cout << (int)s.find(i) << " ";
+}
 --------------------------------
 int t;
-    cin >> t;
-    for (int i = 0; i < t; i++)
-    {
-        int r;
-        string p;
-        cin >> r;
-        cin >> p;
+cin >> t;
+for (int i = 0; i < t; i++)
+{
+    int r;
+    string p;
+    cin >> r;
+    cin >> p;
 
-        for (int j = 0; j < p.length(); j++)
+    for (int j = 0; j < p.length(); j++)
+    {
+        for (int k = 0; k < r; k++)
         {
-            for (int k = 0; k < r; k++)
-            {
-                cout << p[j];
-            }
+            cout << p[j];
         }
-        cout << "\n";
     }
+    cout << "\n";
+}
 --------------------------------
 string s;
-    int count = 1;
+int count = 1;
 
-    getline(cin, s);
+getline(cin, s);
 
-    if (s.length() == 1 && s[0] == ' ') {
-        cout << 0;
-        return 0;
-    }
+if (s.length() == 1 && s[0] == ' ') {
+    cout << 0;
+    return 0;
+}
 
-    for (int i = 1; i < s.length() - 1; i++)
-    {
-        if (s[i] == ' ')
-            count++;
-    }
+for (int i = 1; i < s.length() - 1; i++)
+{
+    if (s[i] == ' ')
+        count++;
+}
 
-    cout << count;
+cout << count;
 --------------------------------
 string a, b;
-    cin >> a >> b;
+cin >> a >> b;
 
-    string bigger;
+string bigger;
 
-    for (int i = 2; i >= 0; i--) {
-        if (a[i] > b[i]) {
-            bigger = a;
-            break;
-        }
-        else if (a[i] < b[i]) {
-            bigger = b;
-            break;
-        }
+for (int i = 2; i >= 0; i--) {
+    if (a[i] > b[i]) {
+        bigger = a;
+        break;
     }
+    else if (a[i] < b[i]) {
+        bigger = b;
+        break;
+    }
+}
 
-    cout << bigger[2] << bigger[1] << bigger[0];
+cout << bigger[2] << bigger[1] << bigger[0];
 --------------------------------
 int timer = 0;
-    string s;
+string s;
 
-    cin >> s;
+cin >> s;
 
-    for (int i = 0; i < s.size(); i++) {
-        timer += ((int)s[i] - 65) / 3 + 3;
+for (int i = 0; i < s.size(); i++) {
+    timer += ((int)s[i] - 65) / 3 + 3;
 
-        if (s[i] == 'S' || s[i] == 'V' || s[i] == 'Y' || s[i] == 'Z')
-            timer--;
-    }
+    if (s[i] == 'S' || s[i] == 'V' || s[i] == 'Y' || s[i] == 'Z')
+        timer--;
+}
 
-    cout << timer;
+cout << timer;
 --------------------------------
 
 */
 #pragma endregion
+
+#pragma region Hard
+/*
+cout << "         ,r'\"7" << "\n";
+cout << "r`-_   ,'  ,/" << "\n";
+cout << " \\. \". L_r\'" << "\n";
+cout << "   `~\\/" << "\n";
+cout << "      |" << "\n";
+cout << "      |" << "\n";
+--------------------------------
+int king = 1;
+int queen = 1;
+int rook = 2;
+int bishop = 2;
+int knight = 2;
+int pawn = 8;
+
+int _king, _queen, _rook, _bishop, _knight, _pawn;
+
+cin >> _king;
+cin >> _queen;
+cin >> _rook;
+cin >> _bishop;
+cin >> _knight;
+cin >> _pawn;
+
+cout << king - _king << " ";
+cout << queen - _queen << " ";
+cout << rook - _rook << " ";
+cout << bishop - _bishop << " ";
+cout << knight - _knight << " ";
+cout << pawn - _pawn;
+--------------------------------
+int num;
+
+cin >> num;
+
+for (int i = 1; i <= num ; i++)
+{
+for (int j = 0; j < num - i; j++)
+    cout << " ";
+for (int k = 0; k < 2 * i - 1; k++)
+    cout << "*";
+cout << "\n";
+}
+
+for (int i = 1; i < num; i++)
+{
+for (int j = 0; j < i; j++)
+    cout << " ";
+for (int k = 0; k < 2 * num - (2 * i + 1); k++)
+    cout << "*";
+cout << "\n";
+}
+--------------------------------
+string name;
+cin >> name;
+
+int len = name.length();
+
+int cnt = 0;
+
+for (int i = 0; i < len / 2; i++) {
+    if (name[i] != name[name.length() - 1 - i]) {
+        cout << '0' << "\n";
+        return 0;
+    }
+}
+cout << "1";
+--------------------------------
+int cnt[26] = { 0, };
+int max = -1;
+char res;
+
+string s;
+
+cin >> s;
+
+for (int i = 0; i < s.length(); i++)
+{
+    if (s[i] >= 'a' && s[i] <= 'z')
+        s[i] = s[i] - 'a' + 'A';
+
+    if (++cnt[s[i] - 'A'] > max)
+    {
+        max = cnt[s[i] - 'A'];
+        res = s[i];
+    }
+}
+
+int check = 0;
+
+for (int i = 0; i < 26; i++)
+    if (max == cnt[i])
+        check++;
+
+if (check == 1) cout << res;
+else cout << "?";
+--------------------------------
+
+--------------------------------
+int num;
+string word;
+int count = 0;
+
+cin >> num;
+for (int i = 0; i < num; i++)
+{
+    cin >> word;
+
+    bool alphabet[26] = { false, };
+    alphabet[(int)(word[0]) - 97] = true;
+
+    for (int i = 1; i < word.size(); i++)
+    {
+        if (word[i] == word[i - 1])
+        {
+            continue;
+        }
+
+        else if (word[i] != word[i - 1] && alphabet[(int)(word[i]) - 97] == true)
+        {
+            count++;
+            break;
+        }
+
+        else
+            alphabet[(int)(word[i]) - 97] = true;
+    }
+}
+cout << num - count;
+--------------------------------
+string name;
+double avg = 0;
+float sumGrade = 0;
+double score[20];
+float grade[20];
+string input;
+
+for (int i = 0; i < 20; i++)
+{
+    cin >> name >> grade[i] >> input;
+    if (input == "A+")
+        score[i] = 4.5;
+    else if (input == "A0")
+        score[i] = 4.0;
+    else if (input == "B+")
+        score[i] = 3.5;
+    else if (input == "B0")
+        score[i] = 3.0;
+    else if (input == "C+")
+        score[i] = 2.5;
+    else if (input == "C0")
+        score[i] = 2.0;
+    else if (input == "D+")
+        score[i] = 1.5;
+    else if (input == "D0")
+        score[i] = 1.0;
+    else if (input == "F")
+        score[i] = 0.0;
+    else if (input == "P") {
+        score[i] = 0.0;
+        grade[i] = 0;
+    }
+
+    avg += (score[i] * grade[i]);
+    sumGrade += grade[i];
+}
+
+avg = avg / sumGrade;
+cout << avg;
+--------------------------------
+*/
+#pragma endregion
+
+#pragma region Matrix
+/*
+int row, column;
+int a[101][101], b[101][101];
+
+cin >> row >> column;
+for (int i = 1; i <= row; i++)
+{
+    for (int j = 1; j <= column; j++)
+        cin >> a[i][j];
+}
+
+for (int i = 1; i <= row; i++)
+{
+    for (int j = 1; j <= column; j++)
+        cin >> b[i][j];
+}
+
+for (int i = 1; i <= row; i++)
+{
+    for (int j = 1; j <= column; j++)
+        cout << a[i][j] + b[i][j] << ' ';
+    cout << "\n";
+}
+--------------------------------
+int a, x, y;
+int max = -1;
+
+for (int i = 1; i <= 9; i++)
+{
+    for (int k = 1; k <= 9; k++)
+    {
+        cin >> a;
+
+        if (max <= a) {
+            max = a;
+            x = i;
+            y = k;
+        }
+    }
+}
+
+cout << max << "\n";
+cout << x << ' ' << y;
+--------------------------------
+string word[5];
+
+for (int i = 0; i < 5; i++)
+    cin >> word[i];
+
+for (int i = 0; i < 15; i++)
+{
+    for (int j = 0; j < 5; j++)
+    {
+        if (i < word[j].size())
+        {
+            cout << word[j][i];
+        }
+    }
+}
+cout << endl;
+--------------------------------
+int a[100][100] = { 0 };
+
+int n, x, y, cnt = 0;
+cin >> n;
+
+while (n--)
+{
+    cin >> x >> y;
+    for (int i = y; i < y + 10; i++) {
+        for (int j = x; j < x + 10; j++) {
+            if (a[i][j])
+                continue;
+            a[i][j] = 1;
+            cnt++;
+        }
+    }
+}
+
+cout << cnt;
+--------------------------------
+*/
+#pragma endregion
+
