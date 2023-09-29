@@ -1,160 +1,148 @@
-#include <iostream>
+﻿#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
 int main(int argc, const char* argv[]) {
 
-    int a[100][100] = { 0 };
+    int a[3];
 
-    int n, x, y, cnt = 0;
-    cin >> n;
+    cin >> a[0] >> a[1] >> a[2];
+    sort(a, a + 3);
+    if (a[0] + a[1] > a[2]) cout << a[0] + a[1] + a[2];
+    else cout << (a[0] + a[1]) * 2 - 1;
 
-    while (n--)
-    {
-        cin >> x >> y;
-        for (int i = y; i < y + 10; i++) {
-            for (int j = x; j < x + 10; j++) {
-                if (a[i][j])
-                    continue;
-                a[i][j] = 1;
-                cnt++;
-            }
-        }
-    }
-
-    cout << cnt;
-
-	return 0;
+    return 0;
 }
 
 
 // 문제별 순서대로
 #pragma region arithmetic / condition 
 /*int a, b;
-   cin >> a;
-   cin >> b;
-   printf("%.9f\n", (double)a / b);
-   ---------------------------------
-   int a, b;
-    cin >> a;
-    cin >> b;
+cin >> a;
+cin >> b;
+printf("%.9f\n", (double)a / b);
+---------------------------------
+int a, b;
+cin >> a;
+cin >> b;
 
-    cout << a + b << endl;
-    cout << a - b << endl;
-    cout << a * b << endl;
-    cout << a / b << endl;
-    cout << a % b << endl;
-    -------------------------------
-    string id;
-    cin >> id;
+cout << a + b << endl;
+cout << a - b << endl;
+cout << a * b << endl;
+cout << a / b << endl;
+cout << a % b << endl;
+-------------------------------
+string id;
+cin >> id;
 
-    id += "??!";
-    cout << id;
-    --------------------------------
-    int a;
-    int b;
-    int c;
+id += "??!";
+cout << id;
+--------------------------------
+int a;
+int b;
+int c;
 
-    cin >> a;
-    cin >> b;
-    cin >> c;
+cin >> a;
+cin >> b;
+cin >> c;
 
-    cout << (a + b) % c << endl;
-    cout << ((a % c) + (b % c)) % c << endl;
-    cout << (a * b) % c << endl;
-    cout << ((a % c) * (b % c)) % c << endl;
-    --------------------------------
-    cout << a * (b % 10) << endl;
-    cout << a * (b % 100 / 10) << endl;
-    cout << a * (b / 100) << endl;
-    cout << a * b << endl;
-    --------------------------------
-    long a,b,c;
+cout << (a + b) % c << endl;
+cout << ((a % c) + (b % c)) % c << endl;
+cout << (a * b) % c << endl;
+cout << ((a % c) * (b % c)) % c << endl;
+--------------------------------
+cout << a * (b % 10) << endl;
+cout << a * (b % 100 / 10) << endl;
+cout << a * (b / 100) << endl;
+cout << a * b << endl;
+--------------------------------
+long a,b,c;
 
-    cin >> a >> b >> c;
+cin >> a >> b >> c;
 
-    cout << a + b + c << endl;
-    --------------------------------
-    cout << "\\    /\\" << endl;
-    cout << " )  ( ')" << endl;
-    cout << "(  /  )" << endl;
-    cout << " \\(__)|" << endl;
-    --------------------------------
-    cout << "|\\_/|" << endl;
-    cout << "|q p|   /}" << endl;
-    cout << "( 0 )\"\"\"\\" << endl;
-    cout << "|\"^\"`    |" << endl;
-    cout << "||_/=\\\\__|" << endl;
-    --------------------------------
-    int a;
+cout << a + b + c << endl;
+--------------------------------
+cout << "\\    /\\" << endl;
+cout << " )  ( ')" << endl;
+cout << "(  /  )" << endl;
+cout << " \\(__)|" << endl;
+--------------------------------
+cout << "|\\_/|" << endl;
+cout << "|q p|   /}" << endl;
+cout << "( 0 )\"\"\"\\" << endl;
+cout << "|\"^\"`    |" << endl;
+cout << "||_/=\\\\__|" << endl;
+--------------------------------
+int a;
 
-    cin >> a ;
+cin >> a ;
 
-    if (a <= 100 && a >= 90)
-        cout << "A";
-    else if (a < 90 && a >= 80)
-        cout << "B";
-    else if (a < 80 && a >= 70)
-        cout << "C";
-    else if (a < 70 && a >= 60)
-        cout << "D";
-    else
-        cout << "F";
-    --------------------------------
-    if (a % 4 == 0 && (a % 100 != 0 || a % 400 == 0))
-        cout << 1 << endl;
-    else
-        cout << 0 << endl;
-    --------------------------------
-    if (a > 0 && b > 0)
-        cout << 1;
-    else if (a < 0 && b > 0)
-        cout << 2;
-    else if (a < 0 && b < 0)
-        cout << 3;
-    else if (a > 0 && b < 0)
-        cout << 4;
-    --------------------------------
-    int totalMin = 60 * a + b;
-    totalMin += c;
+if (a <= 100 && a >= 90)
+    cout << "A";
+else if (a < 90 && a >= 80)
+    cout << "B";
+else if (a < 80 && a >= 70)
+    cout << "C";
+else if (a < 70 && a >= 60)
+    cout << "D";
+else
+    cout << "F";
+--------------------------------
+if (a % 4 == 0 && (a % 100 != 0 || a % 400 == 0))
+    cout << 1 << endl;
+else
+    cout << 0 << endl;
+--------------------------------
+if (a > 0 && b > 0)
+    cout << 1;
+else if (a < 0 && b > 0)
+    cout << 2;
+else if (a < 0 && b < 0)
+    cout << 3;
+else if (a > 0 && b < 0)
+    cout << 4;
+--------------------------------
+int totalMin = 60 * a + b;
+totalMin += c;
 
-    int h = (totalMin / 60) % 24;
-    int m = totalMin % 60;
+int h = (totalMin / 60) % 24;
+int m = totalMin % 60;
 
-    cout << h << " " << m << endl;
-    --------------------------------
-    if (a != b && b != c && a != c) {
-        int max;
-        if (a > b) {
-            if (c > a)
-                max = c;
-            else
-                max = a;
-        }
-        else {
-            if (c > b)
-                max = c;
-            else
-                max = b;
-        }
-        cout << max * 100;
+cout << h << " " << m << endl;
+--------------------------------
+if (a != b && b != c && a != c) {
+    int max;
+    if (a > b) {
+        if (c > a)
+            max = c;
+        else
+            max = a;
     }
     else {
-        if (a == b && a == c)
-            cout << 10000 + a * 1000;
-        else {
-            if (a == b || a == c)
-                cout << 1000 + a * 100;
-            else
-                cout << 1000 + b * 100;
-        }
-    }*/
+        if (c > b)
+            max = c;
+        else
+            max = b;
+    }
+    cout << max * 100;
+}
+else {
+    if (a == b && a == c)
+        cout << 10000 + a * 1000;
+    else {
+        if (a == b || a == c)
+            cout << 1000 + a * 100;
+        else
+            cout << 1000 + b * 100;
+    }
+}*/
 #pragma endregion
 
 #pragma region Repeat
 /*--------------------------------
 for (int i = 1; i < 10; i++) {
-	cout << ("%d", n) << " * " << ("%d", i) << " = " << (n * i) << endl;
+    cout << ("%d", n) << " * " << ("%d", i) << " = " << (n * i) << endl;
 }
 --------------------------------
 int n, a, b;
@@ -162,7 +150,7 @@ cin >> n;
 
 for (int i = 0; i < n; i++) {
     cin >> a >> b;
-	cout << a + b << "\n";
+    cout << a + b << "\n";
 }
 --------------------------------
 int n;
@@ -170,7 +158,7 @@ int sum = 0;
 cin >> n;
 
 for (int i = 1; i < n + 1; i++) {
-	sum += i;
+    sum += i;
 }
 cout << sum << endl;
 --------------------------------
@@ -823,3 +811,332 @@ cout << cnt;
 */
 #pragma endregion
 
+#pragma region Basic Math
+/*
+int b;
+int res = 0;
+string n;
+cin >> n >> b;
+
+for (int i = 0; i < n.length(); i++)
+{
+if ('0' <= n[i] && n[i] <= '9')
+{
+    res = res * b + (n[i] - '0');
+}
+else
+    res = res * b + (n[i] - 'A' + 10);
+}
+
+cout << res;
+--------------------------------
+int n, b;
+cin >> n >> b;
+
+string result = " ";
+
+while (n > 0)
+{
+    int r = n % b;
+
+    if (r < 10)
+        result += (char)(r + '0');
+    else
+        result += (char)(r - 10 + 'A');
+
+    n /= b;
+}
+reverse(result.begin(), result.end());
+
+cout << result;
+--------------------------------
+int qua, dim, nic, pen;
+int cnt;
+
+cin >> cnt;
+int* num = new int[cnt];
+
+for (int i = 0; i < cnt; i++)
+{
+    cin >> num[i];
+    qua = num[i] / 25;
+    pen = num[i] % 25;
+    dim = pen / 10;
+    pen %= 10;
+    nic = pen / 5;
+    pen %= 5;
+
+    cout << qua << " " << dim << " " << nic << " " << pen << "\n";
+
+}
+--------------------------------
+int num;
+
+cin >> num;
+
+int i = 0;
+
+for (int sum = 2; sum <= num; i++)
+    sum += 6 * i;
+
+if (num == 1)
+    i = 1;
+
+cout << i;
+--------------------------------
+int v, a, b;
+
+    cin >> a >> b >> v;
+
+    int day = 1;
+
+    day += (v - a) / (a - b);
+    if ((v-a)%(a-b) != 0)
+        day++;
+    if (a >= v)
+        cout << "1";
+    else
+        cout << day;
+--------------------------------
+*/
+#pragma endregion
+
+#pragma region Multiple
+/*
+int a, b;
+
+while (true)
+{
+cin >> a >> b;
+
+if (a == 0 && b == 0)
+{
+    break;
+}
+
+if (b % a == 0)
+{
+    cout << "factor" << "\n";
+}
+else if (a % b == 0)
+{
+    cout << "multiple" << "\n";
+}
+else
+{
+    cout << "neither" << "\n";
+}
+}
+--------------------------------
+int arr[10000] = { 10000 }, N, K, cnt = 0, p = 0;
+cin >> N >> K;
+for (int i = 1; i < 10000; i++)
+{
+    if (i > N)
+        break;
+    if (N % i == 0)//약수라면
+    {
+        cnt++;
+        arr[p++] = i;
+    }
+}
+if (cnt < K)
+    cout << "0";
+else
+    cout << arr[K - 1];
+--------------------------------
+int n = 0;
+while (1)
+{
+vector<int>measure;
+int sum = 0;
+int n;
+cin >> n;
+if (n == -1)
+    break;
+for (int i = 1; i < n; i++)
+    if (n % i == 0)
+        measure.push_back(i);
+for (int i = 0; i < measure.size(); i++)
+    sum += measure[i];
+if (n == sum)
+{
+    cout << n << " = ";
+    for (int i = 0; i < measure.size(); i++)
+    {
+        if (i == measure.size() - 1)
+            cout << measure[i];
+        else
+            cout << measure[i] << " + ";
+    }
+    cout << '\n';
+}
+else
+    cout << n << " is NOT perfect.\n";
+}
+--------------------------------
+int n, result = 0;
+
+cin >> n;
+
+int temp, cnt = 0;
+
+for (int i = 0; i < n; i++)
+{
+cin >> temp;
+for (int div = 1; div <= temp; div++)
+{
+    if (temp % div == 0)
+        cnt++;
+}
+if (cnt == 2)
+    result++;
+cnt = 0;
+}
+cout << result << "\n";
+--------------------------------
+int m, n;
+int sum = 0, min = -1, cnt = 0;
+cin >> m >> n;
+
+for (int i = m; i <= n; i++)
+{
+    for (int div = 1; div <= i; div++)
+    {
+        if (i % div == 0)
+            cnt++;
+    }
+    if (cnt == 2)
+    {
+        if (min == -1)
+            min = i;
+        sum += i;
+    }
+    cnt = 0;
+}
+if (min == -1)
+    cout << -1 << "\n";
+else
+    cout << sum << "\n" << min << '\n';
+--------------------------------
+int N;
+cin >> N;
+
+if (N == 1) return 0;
+
+for (int i = 2; i <= N; i++) {
+    while (N % i == 0) {
+        cout << i << endl;
+        N /= i;
+    }
+}
+--------------------------------
+*/
+#pragma endregion
+
+#pragma region MyRegion
+/*
+int a, b;
+cin >> a >> b;
+
+cout << a * b;
+--------------------------------
+int x, y, w, h;
+int tmp1, tmp2;
+
+cin >> x >> y >> w >> h;
+
+tmp1 = min(x, y);
+tmp2 = min(w - x, h - y);
+cout << min(tmp1, tmp2);
+--------------------------------
+int x[3];
+int y[3];
+for (int i = 0; i < 3; i++)
+    cin >> x[i] >> y[i];
+if (x[0] == x[1])
+    cout << x[2] << " ";
+else if (x[0] == x[2])
+    cout << x[1] << " ";
+else
+    cout << x[0] << " ";
+
+if (y[0] == y[1])
+    cout << y[2];
+else if (y[0] == y[2])
+    cout << y[1];
+else
+    cout << y[0];
+--------------------------------
+long n;
+cin >> n;
+cout << n * 4 << endl;
+--------------------------------
+int n;
+cin >> n;
+
+int* x = new int[n];
+int* y = new int[n];
+
+for (int i = 0; i < n; i++)
+    cin >> x[i] >> y[i];
+
+sort(x, x + n);
+sort(y, y + n);
+
+cout << (x[n - 1] - x[0]) * (y[n - 1] - y[0]);
+--------------------------------
+int a, b, c;
+cin >> a >> b >> c;
+if (a + b + c == 180)
+{
+    if (a == b && a == c && b == c)
+        cout << "Equilateral";
+    else if (a == b || a == c || b == c)
+        cout << "Isosceles";
+    else
+        cout << "Scalene";
+}
+else
+    cout << "Error";
+--------------------------------
+int triangle[3];
+
+while (1)
+{
+    for (int i = 0; i < 3; i++)
+    {
+        cin >> triangle[i];
+    }
+    if (triangle[0] == 0 && triangle[0] == triangle[1] && triangle[0] == triangle[2])
+    {
+        break;
+    }
+    sort(triangle, triangle + 3);
+    if (triangle[2] >= triangle[1] + triangle[0])
+    {
+        cout << "Invalid" << '\n';
+    }
+    else if (triangle[0] != triangle[1] && triangle[1] != triangle[2] && triangle[0] != triangle[2])
+    {
+        cout << "Scalene" << '\n';
+    }
+    else
+    {
+        if (triangle[0] == triangle[1] && triangle[1] == triangle[2])
+        {
+            cout << "Equilateral" << '\n';
+        }
+        else
+            cout << "Isosceles" << '\n';
+    }
+}
+--------------------------------
+int a[3];
+
+cin >> a[0] >> a[1] >> a[2];
+sort(a, a + 3);
+if (a[0] + a[1] > a[2]) cout << a[0] + a[1] + a[2];
+else cout << (a[0] + a[1]) * 2 - 1;
+*/
+#pragma endregion
